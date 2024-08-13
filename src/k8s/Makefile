@@ -32,6 +32,9 @@ bin/static/k8s-apiserver-proxy: bin/static/k8s
 bin/static/k8sd: bin/static/k8s
 	cd bin/static && ln -sf k8s k8sd
 
+bin/static/k8sd_members: bin/static/k8s
+	cd bin/static && ln -sf k8s k8sd_members
+
 ## Dynamic Builds
 dynamic: bin/dynamic/k8s bin/dynamic/k8sd bin/dynamic/k8s-apiserver-proxy
 

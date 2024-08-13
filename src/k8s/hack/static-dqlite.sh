@@ -11,7 +11,7 @@ BUILD_DIR="$(realpath "${BUILD_DIR}")"
 INSTALL_DIR="$(realpath "${INSTALL_DIR}")"
 
 export LDFLAGS="-static"
-export CFLAGS=""
+export CFLAGS="-g"
 MACHINE_TYPE="$(uname -m)"
 if [ "${MACHINE_TYPE}" = "ppc64le" ]; then
   MACHINE_TYPE="powerpc64le"

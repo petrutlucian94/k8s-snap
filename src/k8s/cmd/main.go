@@ -11,6 +11,7 @@ import (
 	"github.com/canonical/k8s/cmd/k8s"
 	k8s_apiserver_proxy "github.com/canonical/k8s/cmd/k8s-apiserver-proxy"
 	"github.com/canonical/k8s/cmd/k8sd"
+	"github.com/canonical/k8s/cmd/k8sd_members"
 	cmdutil "github.com/canonical/k8s/cmd/util"
 	"github.com/canonical/k8s/pkg/log"
 	"github.com/spf13/cobra"
@@ -37,6 +38,8 @@ func main() {
 		k8sd.NewRootCmd(env).ExecuteContext(ctx)
 	case "k8s":
 		k8s.NewRootCmd(env).ExecuteContext(ctx)
+	case "k8sd_members":
+		k8sd_members.NewRootCmd(env).ExecuteContext(ctx)
 	default:
 		panic(fmt.Errorf("invalid entrypoint name %q", base))
 	}
