@@ -26,3 +26,12 @@ matrix:
       - div.visually-hidden
       - img
       - a.p-navigation__link
+  - pyspelling.filters.context: 
+      context_visible_first: true
+      delimiters:
+      # Ignore URLs
+      - open: 'https?:\S+?'
+        close: '\s'
+        #Ignore links
+      - open: 'link:[^[]+'
+        close: '\['  

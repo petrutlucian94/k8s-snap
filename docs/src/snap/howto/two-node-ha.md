@@ -145,7 +145,7 @@ sudo mkfs.ext4 /dev/drbd0
 sudo drbdadm down r0
 ```
 
-Add the DRBD device to the ``multipathd`` blacklist, ensuring that the multipath
+Add the DRBD device to the ``multipathd`` blacklist, ensuring that the ``multipath``
 service will not attempt to manage this device:
 
 ```
@@ -386,7 +386,7 @@ Remove the offending segments and restart the ``two-node-ha-k8s`` service.
 ### DRBD split brain
 
 The DRBD cluster may enter a [split brain] state and stop synchronizing. The
-chances increase if fencing (stonith) is not enabled.
+chances increase if fencing (STONITH) is not enabled.
 
 ```
 ubuntu@hatwo:~$ sudo drbdadm status

@@ -38,7 +38,7 @@ Deploy MicroK8s on Ubuntu by accessing the unit you created at the last step
 with `juju ssh microk8s/0` and following the 
 [Install Microk8s][how-to-install-microk8s] guide for configuration.
 
-```{note} Make sure to enable the hostpath-storage and MetalLB addons for 
+```{note} Make sure to enable the `hostpath-storage` and MetalLB addons for 
 Microk8s.
 ```
 

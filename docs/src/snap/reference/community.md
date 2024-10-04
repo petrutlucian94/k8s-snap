@@ -35,7 +35,7 @@ aim to triage all bug reports within three working days.
 
 ## Contributing to the code?
 
-{{product}} is proudly open source, published under the GPLv3 license.
+{{product}} is proudly open source, published under the `GPLv3` license.
 We welcome and encourage contributions to the code. Please see the [Developer
 guide] for more information on contributing.
 

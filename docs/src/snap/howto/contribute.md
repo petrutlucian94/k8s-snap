@@ -1,6 +1,6 @@
 # How to contribute to {{product}}
 
-{{product}} is proudly open source, published under the GPLv3 license.
+{{product}} is proudly open source, published under the `GPLv3` license.
 We welcome and encourage contributions to the code and the documentation. See
 the [community page][] for ways to get in touch and provide feedback.
 

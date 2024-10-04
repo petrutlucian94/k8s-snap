@@ -16,7 +16,7 @@ curl -L https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.7.3/
 sudo install -o root -g root -m 0755 clusterctl /usr/local/bin/clusterctl
 ```
 
-### Configure clusterctl
+### Configure `clusterctl`
 
 `clusterctl` contains a list of default providers. Right now, {{product}} is 
 not yet part of that list. To make `clusterctl` aware of the new
@@ -185,7 +185,7 @@ export CLUSTER_NAME=yourk8scluster
 clusterctl generate cluster ${CLUSTER_NAME} --from ./templates/<infrastructure-provider>/cluster-template.yaml --list-variables
 ```
 
-Set the respective environment variables by editing the rc file as needed
+Set the respective environment variables by editing the `rc` file as needed
 before sourcing it. Then generate the cluster manifest:
 
 ```

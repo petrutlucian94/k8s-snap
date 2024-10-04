@@ -515,14 +515,14 @@ sudo k8s kubectl apply -f https://raw.githubusercontent.com/k8snetworkplumbingwg
 ```
 
 ```{note} 
-The memory limits for the multus pod spec in the DaemonSet should be
+The memory limits for the Multus pod spec in the DaemonSet should be
 increased (i.e. to 500Mi instead 50Mi) to avoid OOM issues when deploying
 multiple workload pods in parallel.
 ```
 
 #### SRIOV Network Device Plugin 
 
-Create sriov-dp.yaml configMap:
+Create sriov-dp.yaml `configMap`:
 
 ```
 cat <<EOF | tee sriov-dp.yaml
@@ -558,7 +558,7 @@ data:
 EOF
 ```
 
-Apply the configMap definition:
+Apply the `configMap` definition:
 
 ```
 sudo k8s kubectl create -f ./sriov-dp.yaml

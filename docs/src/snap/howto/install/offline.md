@@ -77,7 +77,7 @@ This section is only relevant if access to upstream image registries
 is only allowed through an HTTP proxy (e.g. [squid][squid]).
 
 Ensure that all nodes can use the proxy to access the image registry.
-For example, if using `http://squid.internal:3128` to access docker.io,
+For example, if using `http://squid.internal:3128` to access `docker.io`,
 an easy way to test connectivity is:
 
 ```
