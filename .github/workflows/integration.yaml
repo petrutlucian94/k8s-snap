@@ -160,6 +160,8 @@ jobs:
           format: "sarif"
           output: "trivy-k8s-repo-scan--results.sarif"
           severity: "MEDIUM,HIGH,CRITICAL"
+        env:
+          TRIVY_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-db:2"
       - name: Gather Trivy repo scan results
         run: |
           cp trivy-k8s-repo-scan--results.sarif ./manual-trivy/sarifs/
