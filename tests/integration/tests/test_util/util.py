@@ -29,6 +29,18 @@ RISKS = ["stable", "candidate", "beta", "edge"]
 TRACK_RE = re.compile(r"^(\d+)\.(\d+)(\S*)$")
 
 
+def skip_cleanup_on_failure(f):
+    def wrapper(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except Exception as ex:
+            LOG.exception("Got exception, skipping instance cleanup")
+            config.SKIP_CLEANUP = True
+            raise
+
+    return wrapper
+
+
 def run(command: list, **kwargs) -> subprocess.CompletedProcess:
     """Log and run command."""
     kwargs.setdefault("check", True)
@@ -86,6 +98,7 @@ def stubbornly(
             self._condition = None
             self._run = partial(run, capture_output=True)
 
+        @skip_cleanup_on_failure
         @retry(**_retry_args)
         def exec(
             self,
