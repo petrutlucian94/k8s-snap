@@ -27,3 +27,32 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
 
+  get-charm-channel:
+    name: Determine the charm channel
+    outputs:
+      charm-channel: ${{ steps.parse-branch.outputs.charm-channel }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse branch name
+        id: parse-branch
+        env:
+          # Use either the base (destination) branch name for PRs or
+          # "ref_name" on push.
+          BRANCH_NAME: ${{ github.base_ref || github.ref_name }} 
+        run: |
+          release=$(echo $BRANCH_NAME | grep -Po "release-\d+\.\d+" | cut -d "-" -f 2)
+          if [[ -n $release ]]; then
+            # Stable releases don't have an "edge" track, we'll use beta.
+            channel="$release/beta"
+          else
+            channel=latest/edge
+          fi
+          echo "charm-channel=$channel" >> "$GITHUB_OUTPUT"
+
+  test-branch:
+    needs: [get-charm-channel]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Obtained branch: ${{ needs.get-charm-channel.outputs.charm-channel }}"
+        run: "echo ${{ needs.get-charm-channel.outputs.charm-channel }}"
+
